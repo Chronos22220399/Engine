@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/Ess/Code/Cpp/Engine/build",
+  "command": "/usr/bin/g++  -I/home/Ess/Code/Cpp/Engine/cppjieba/include -I/home/Ess/Code/Cpp/Engine/include -I/home/Ess/Code/Cpp/Engine/cppjieba/deps/limonp/include -g -std=gnu++23 -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/Cutter.cpp.o -c /home/Ess/Code/Cpp/Engine/src/Cutter.cpp",
+  "file": "/home/Ess/Code/Cpp/Engine/src/Cutter.cpp",
+  "output": "CMakeFiles/Engine.dir/src/Cutter.cpp.o"
+},
+{
+  "directory": "/home/Ess/Code/Cpp/Engine/build",
+  "command": "/usr/bin/g++  -I/home/Ess/Code/Cpp/Engine/cppjieba/include -I/home/Ess/Code/Cpp/Engine/include -I/home/Ess/Code/Cpp/Engine/cppjieba/deps/limonp/include -g -std=gnu++23 -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/main.cpp.o -c /home/Ess/Code/Cpp/Engine/src/main.cpp",
+  "file": "/home/Ess/Code/Cpp/Engine/src/main.cpp",
+  "output": "CMakeFiles/Engine.dir/src/main.cpp.o"
+}
+]
