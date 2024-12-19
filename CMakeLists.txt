@@ -7,6 +7,8 @@ project(
     LANGUAGES CXX
 )
 
+
+set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -29,10 +31,20 @@ file(
     "include/*.h"
 )
 
+# 暂时使用硬编码
+set(LEVELDB_INCLUDE_DIRS /opt/homebrew/Cellar/leveldb/1.23_1/include)
+set(LEVELDB_LIBRARIES /opt/homebrew/Cellar/leveldb/1.23_1/lib)
+
 include_directories(cppjieba/include)
-link_directories("cpp")
+# link_directories("cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${INCLUDES} ${CPPJIEBA_SOURCES})
+
+target_link_libraries(
+    ${PROJECT_NAME}
+    PRIVATE
+    ${LEVELDB_LIBRARIES}/libleveldb.dylib
+)
 
 target_include_directories(
     ${PROJECT_NAME} 
@@ -40,6 +52,7 @@ target_include_directories(
     ${CMAKE_SOURCE_DIR}/include 
     ${CMAKE_SOURCE_DIR}/cppjieba/include
     ${CMAKE_SOURCE_DIR}/cppjieba/deps/limonp/include
+    ${LEVELDB_INCLUDE_DIRS}
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE

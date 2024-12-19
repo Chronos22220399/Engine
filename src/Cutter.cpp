@@ -77,7 +77,7 @@ std::string Egutils::StringProcessor::advancedProcess(std::string const& text) {
             for (auto& elem : res) {
                 temp_str += elem + " ";
             }
-            stk.push(std::move(strip(temp_str)));
+            stk.push(strip(temp_str));
         } else {
             throw runtime_error("未知高级运算符");
         }

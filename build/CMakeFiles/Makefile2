@@ -45,19 +45,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E rm -f
+RM = /opt/homebrew/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/Ess/Code/Cpp/Engine
+CMAKE_SOURCE_DIR = /Users/wuming/Desktop/Engine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/Ess/Code/Cpp/Engine/build
+CMAKE_BINARY_DIR = /Users/wuming/Desktop/Engine/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -85,14 +85,14 @@ clean: CMakeFiles/Engine.dir/clean
 CMakeFiles/Engine.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Ess/Code/Cpp/Engine/build/CMakeFiles --progress-num=1,2,3 "Built target Engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=1,2,3 "Built target Engine"
 .PHONY : CMakeFiles/Engine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Engine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/Ess/Code/Cpp/Engine/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/wuming/Desktop/Engine/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Engine.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/Ess/Code/Cpp/Engine/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/wuming/Desktop/Engine/build/CMakeFiles 0
 .PHONY : CMakeFiles/Engine.dir/rule
 
 # Convenience name for target.

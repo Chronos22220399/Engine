@@ -4,7 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include",
+                // "/usr/include",
                 "/usr/local/include",
                 "${workspaceFolder}/cppjieba/include",
                 "${workspaceFolder}/cppjieba/deps/limonp/include"

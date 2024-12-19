@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E rm -f
+RM = /opt/homebrew/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/Ess/Code/Cpp/Engine
+CMAKE_SOURCE_DIR = /Users/wuming/Desktop/Engine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/Ess/Code/Cpp/Engine/build
+CMAKE_BINARY_DIR = /Users/wuming/Desktop/Engine/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Engine.dir/depend.make
@@ -73,32 +73,32 @@ CMakeFiles/Engine.dir/codegen:
 .PHONY : CMakeFiles/Engine.dir/codegen
 
 CMakeFiles/Engine.dir/src/Cutter.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/Cutter.cpp.o: /home/Ess/Code/Cpp/Engine/src/Cutter.cpp
+CMakeFiles/Engine.dir/src/Cutter.cpp.o: /Users/wuming/Desktop/Engine/src/Cutter.cpp
 CMakeFiles/Engine.dir/src/Cutter.cpp.o: CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Ess/Code/Cpp/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Engine.dir/src/Cutter.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Engine.dir/src/Cutter.cpp.o -MF CMakeFiles/Engine.dir/src/Cutter.cpp.o.d -o CMakeFiles/Engine.dir/src/Cutter.cpp.o -c /home/Ess/Code/Cpp/Engine/src/Cutter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Engine.dir/src/Cutter.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Engine.dir/src/Cutter.cpp.o -MF CMakeFiles/Engine.dir/src/Cutter.cpp.o.d -o CMakeFiles/Engine.dir/src/Cutter.cpp.o -c /Users/wuming/Desktop/Engine/src/Cutter.cpp
 
 CMakeFiles/Engine.dir/src/Cutter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Cutter.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Ess/Code/Cpp/Engine/src/Cutter.cpp > CMakeFiles/Engine.dir/src/Cutter.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/wuming/Desktop/Engine/src/Cutter.cpp > CMakeFiles/Engine.dir/src/Cutter.cpp.i
 
 CMakeFiles/Engine.dir/src/Cutter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Cutter.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Ess/Code/Cpp/Engine/src/Cutter.cpp -o CMakeFiles/Engine.dir/src/Cutter.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wuming/Desktop/Engine/src/Cutter.cpp -o CMakeFiles/Engine.dir/src/Cutter.cpp.s
 
 CMakeFiles/Engine.dir/src/main.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/main.cpp.o: /home/Ess/Code/Cpp/Engine/src/main.cpp
+CMakeFiles/Engine.dir/src/main.cpp.o: /Users/wuming/Desktop/Engine/src/main.cpp
 CMakeFiles/Engine.dir/src/main.cpp.o: CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Ess/Code/Cpp/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Engine.dir/src/main.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Engine.dir/src/main.cpp.o -MF CMakeFiles/Engine.dir/src/main.cpp.o.d -o CMakeFiles/Engine.dir/src/main.cpp.o -c /home/Ess/Code/Cpp/Engine/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Engine.dir/src/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Engine.dir/src/main.cpp.o -MF CMakeFiles/Engine.dir/src/main.cpp.o.d -o CMakeFiles/Engine.dir/src/main.cpp.o -c /Users/wuming/Desktop/Engine/src/main.cpp
 
 CMakeFiles/Engine.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Ess/Code/Cpp/Engine/src/main.cpp > CMakeFiles/Engine.dir/src/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/wuming/Desktop/Engine/src/main.cpp > CMakeFiles/Engine.dir/src/main.cpp.i
 
 CMakeFiles/Engine.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Ess/Code/Cpp/Engine/src/main.cpp -o CMakeFiles/Engine.dir/src/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wuming/Desktop/Engine/src/main.cpp -o CMakeFiles/Engine.dir/src/main.cpp.s
 
 # Object files for target Engine
 Engine_OBJECTS = \
@@ -111,9 +111,9 @@ Engine_EXTERNAL_OBJECTS =
 Engine: CMakeFiles/Engine.dir/src/Cutter.cpp.o
 Engine: CMakeFiles/Engine.dir/src/main.cpp.o
 Engine: CMakeFiles/Engine.dir/build.make
-Engine: CMakeFiles/Engine.dir/compiler_depend.ts
+Engine: /opt/homebrew/Cellar/leveldb/1.23_1/lib/libleveldb.dylib
 Engine: CMakeFiles/Engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/Ess/Code/Cpp/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -125,6 +125,6 @@ CMakeFiles/Engine.dir/clean:
 .PHONY : CMakeFiles/Engine.dir/clean
 
 CMakeFiles/Engine.dir/depend:
-	cd /home/Ess/Code/Cpp/Engine/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/Ess/Code/Cpp/Engine /home/Ess/Code/Cpp/Engine /home/Ess/Code/Cpp/Engine/build /home/Ess/Code/Cpp/Engine/build /home/Ess/Code/Cpp/Engine/build/CMakeFiles/Engine.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/wuming/Desktop/Engine/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/wuming/Desktop/Engine /Users/wuming/Desktop/Engine /Users/wuming/Desktop/Engine/build /Users/wuming/Desktop/Engine/build /Users/wuming/Desktop/Engine/build/CMakeFiles/Engine.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Engine.dir/depend
 
