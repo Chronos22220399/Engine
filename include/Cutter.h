@@ -14,32 +14,42 @@ auto display(T const& t) {
 
 namespace Egutils {
 
-struct StringProcessor {
+struct TextProcessor {
 public:
-    StringProcessor();
+    TextProcessor();
 
-    std::set<std::string> get_intersection(std::string const& left, std::string const& right);
+    std::set<std::string> getIntersection(std::string const& left, std::string const& right) const;
 
-    std::string strip(std::string const& str);
+    std::string strip(std::string const& str) const;
 
-    std::string process(std::string const& text);
+    std::string process(std::string const& text) const;
 
-    std::string advancedProcess(std::string const& text);
+    std::string advancedProcess(std::string const& text) const;
+
+    std::string setToString(std::set<std::string> const& s) const;
 
 private:
     const cppjieba::Jieba jieba;
 };
+
+struct CharUtils {
+    void extractChar(std::set<std::string> &s, std::wstring const &charSet);
+    
+};
 }
+
 
 class Cutter {
 public:
     Cutter();
 
-    void normalDivorce(std::string const& text, std::vector<std::string> &words);
+    std::set<std::string> normalDivorce(std::string const& text);
 
-    void advancedDivorce(std::string const& text, std::vector<std::string> &words);
+    std::set<std::string> advancedDivorce(std::string const& text);
+
 
 private:
     cppjieba::Jieba jieba;
-    Egutils::StringProcessor text_processor;
+    Egutils::TextProcessor text_processor;
+    Egutils::CharUtils char_utils;
 };

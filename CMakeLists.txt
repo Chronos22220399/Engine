@@ -11,6 +11,9 @@ project(
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+# 暂时使用硬编码
+set(LEVELDB_INCLUDE_DIRS /opt/homebrew/Cellar/leveldb/1.23_1/include)
+set(LEVELDB_LIBRARIES /opt/homebrew/Cellar/leveldb/1.23_1/lib)
 
 file(
     GLOB_RECURSE 
@@ -31,9 +34,8 @@ file(
     "include/*.h"
 )
 
-# 暂时使用硬编码
-set(LEVELDB_INCLUDE_DIRS /opt/homebrew/Cellar/leveldb/1.23_1/include)
-set(LEVELDB_LIBRARIES /opt/homebrew/Cellar/leveldb/1.23_1/lib)
+
+find_package(fmt REQUIRED)
 
 include_directories(cppjieba/include)
 # link_directories("cpp")
@@ -44,6 +46,7 @@ target_link_libraries(
     ${PROJECT_NAME}
     PRIVATE
     ${LEVELDB_LIBRARIES}/libleveldb.dylib
+    fmt::fmt
 )
 
 target_include_directories(

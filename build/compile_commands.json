@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/Users/wuming/Desktop/Engine/build",
+  "command": "/opt/homebrew/bin/aarch64-apple-darwin23-g++-14  -I/Users/wuming/Desktop/Engine/cppjieba/include -I/Users/wuming/Desktop/Engine/include -I/Users/wuming/Desktop/Engine/cppjieba/deps/limonp/include -I/opt/homebrew/Cellar/leveldb/1.23_1/include -isystem /usr/local/include -g -std=gnu++23 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/Cutter.cpp.o -c /Users/wuming/Desktop/Engine/src/Cutter.cpp",
+  "file": "/Users/wuming/Desktop/Engine/src/Cutter.cpp",
+  "output": "CMakeFiles/Engine.dir/src/Cutter.cpp.o"
+},
+{
+  "directory": "/Users/wuming/Desktop/Engine/build",
+  "command": "/opt/homebrew/bin/aarch64-apple-darwin23-g++-14  -I/Users/wuming/Desktop/Engine/cppjieba/include -I/Users/wuming/Desktop/Engine/include -I/Users/wuming/Desktop/Engine/cppjieba/deps/limonp/include -I/opt/homebrew/Cellar/leveldb/1.23_1/include -isystem /usr/local/include -g -std=gnu++23 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/InvIndex.cpp.o -c /Users/wuming/Desktop/Engine/src/InvIndex.cpp",
+  "file": "/Users/wuming/Desktop/Engine/src/InvIndex.cpp",
+  "output": "CMakeFiles/Engine.dir/src/InvIndex.cpp.o"
+},
+{
+  "directory": "/Users/wuming/Desktop/Engine/build",
+  "command": "/opt/homebrew/bin/aarch64-apple-darwin23-g++-14  -I/Users/wuming/Desktop/Engine/cppjieba/include -I/Users/wuming/Desktop/Engine/include -I/Users/wuming/Desktop/Engine/cppjieba/deps/limonp/include -I/opt/homebrew/Cellar/leveldb/1.23_1/include -isystem /usr/local/include -g -std=gnu++23 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/main.cpp.o -c /Users/wuming/Desktop/Engine/src/main.cpp",
+  "file": "/Users/wuming/Desktop/Engine/src/main.cpp",
+  "output": "CMakeFiles/Engine.dir/src/main.cpp.o"
+}
+]

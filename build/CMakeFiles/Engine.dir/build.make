@@ -76,44 +76,61 @@ CMakeFiles/Engine.dir/src/Cutter.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/Cutter.cpp.o: /Users/wuming/Desktop/Engine/src/Cutter.cpp
 CMakeFiles/Engine.dir/src/Cutter.cpp.o: CMakeFiles/Engine.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Engine.dir/src/Cutter.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Engine.dir/src/Cutter.cpp.o -MF CMakeFiles/Engine.dir/src/Cutter.cpp.o.d -o CMakeFiles/Engine.dir/src/Cutter.cpp.o -c /Users/wuming/Desktop/Engine/src/Cutter.cpp
+	/opt/homebrew/bin/aarch64-apple-darwin23-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Engine.dir/src/Cutter.cpp.o -MF CMakeFiles/Engine.dir/src/Cutter.cpp.o.d -o CMakeFiles/Engine.dir/src/Cutter.cpp.o -c /Users/wuming/Desktop/Engine/src/Cutter.cpp
 
 CMakeFiles/Engine.dir/src/Cutter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Cutter.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/wuming/Desktop/Engine/src/Cutter.cpp > CMakeFiles/Engine.dir/src/Cutter.cpp.i
+	/opt/homebrew/bin/aarch64-apple-darwin23-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/wuming/Desktop/Engine/src/Cutter.cpp > CMakeFiles/Engine.dir/src/Cutter.cpp.i
 
 CMakeFiles/Engine.dir/src/Cutter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Cutter.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wuming/Desktop/Engine/src/Cutter.cpp -o CMakeFiles/Engine.dir/src/Cutter.cpp.s
+	/opt/homebrew/bin/aarch64-apple-darwin23-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wuming/Desktop/Engine/src/Cutter.cpp -o CMakeFiles/Engine.dir/src/Cutter.cpp.s
+
+CMakeFiles/Engine.dir/src/InvIndex.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/InvIndex.cpp.o: /Users/wuming/Desktop/Engine/src/InvIndex.cpp
+CMakeFiles/Engine.dir/src/InvIndex.cpp.o: CMakeFiles/Engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Engine.dir/src/InvIndex.cpp.o"
+	/opt/homebrew/bin/aarch64-apple-darwin23-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Engine.dir/src/InvIndex.cpp.o -MF CMakeFiles/Engine.dir/src/InvIndex.cpp.o.d -o CMakeFiles/Engine.dir/src/InvIndex.cpp.o -c /Users/wuming/Desktop/Engine/src/InvIndex.cpp
+
+CMakeFiles/Engine.dir/src/InvIndex.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/InvIndex.cpp.i"
+	/opt/homebrew/bin/aarch64-apple-darwin23-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/wuming/Desktop/Engine/src/InvIndex.cpp > CMakeFiles/Engine.dir/src/InvIndex.cpp.i
+
+CMakeFiles/Engine.dir/src/InvIndex.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/InvIndex.cpp.s"
+	/opt/homebrew/bin/aarch64-apple-darwin23-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wuming/Desktop/Engine/src/InvIndex.cpp -o CMakeFiles/Engine.dir/src/InvIndex.cpp.s
 
 CMakeFiles/Engine.dir/src/main.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/main.cpp.o: /Users/wuming/Desktop/Engine/src/main.cpp
 CMakeFiles/Engine.dir/src/main.cpp.o: CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Engine.dir/src/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Engine.dir/src/main.cpp.o -MF CMakeFiles/Engine.dir/src/main.cpp.o.d -o CMakeFiles/Engine.dir/src/main.cpp.o -c /Users/wuming/Desktop/Engine/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Engine.dir/src/main.cpp.o"
+	/opt/homebrew/bin/aarch64-apple-darwin23-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Engine.dir/src/main.cpp.o -MF CMakeFiles/Engine.dir/src/main.cpp.o.d -o CMakeFiles/Engine.dir/src/main.cpp.o -c /Users/wuming/Desktop/Engine/src/main.cpp
 
 CMakeFiles/Engine.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/wuming/Desktop/Engine/src/main.cpp > CMakeFiles/Engine.dir/src/main.cpp.i
+	/opt/homebrew/bin/aarch64-apple-darwin23-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/wuming/Desktop/Engine/src/main.cpp > CMakeFiles/Engine.dir/src/main.cpp.i
 
 CMakeFiles/Engine.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wuming/Desktop/Engine/src/main.cpp -o CMakeFiles/Engine.dir/src/main.cpp.s
+	/opt/homebrew/bin/aarch64-apple-darwin23-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wuming/Desktop/Engine/src/main.cpp -o CMakeFiles/Engine.dir/src/main.cpp.s
 
 # Object files for target Engine
 Engine_OBJECTS = \
 "CMakeFiles/Engine.dir/src/Cutter.cpp.o" \
+"CMakeFiles/Engine.dir/src/InvIndex.cpp.o" \
 "CMakeFiles/Engine.dir/src/main.cpp.o"
 
 # External object files for target Engine
 Engine_EXTERNAL_OBJECTS =
 
 Engine: CMakeFiles/Engine.dir/src/Cutter.cpp.o
+Engine: CMakeFiles/Engine.dir/src/InvIndex.cpp.o
 Engine: CMakeFiles/Engine.dir/src/main.cpp.o
 Engine: CMakeFiles/Engine.dir/build.make
 Engine: /opt/homebrew/Cellar/leveldb/1.23_1/lib/libleveldb.dylib
+Engine: /usr/local/lib/libfmt.a
 Engine: CMakeFiles/Engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

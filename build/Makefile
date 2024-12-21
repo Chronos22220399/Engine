@@ -153,6 +153,30 @@ src/Cutter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Cutter.cpp.s
 .PHONY : src/Cutter.cpp.s
 
+src/InvIndex.o: src/InvIndex.cpp.o
+.PHONY : src/InvIndex.o
+
+# target to build an object file
+src/InvIndex.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/InvIndex.cpp.o
+.PHONY : src/InvIndex.cpp.o
+
+src/InvIndex.i: src/InvIndex.cpp.i
+.PHONY : src/InvIndex.i
+
+# target to preprocess a source file
+src/InvIndex.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/InvIndex.cpp.i
+.PHONY : src/InvIndex.cpp.i
+
+src/InvIndex.s: src/InvIndex.cpp.s
+.PHONY : src/InvIndex.s
+
+# target to generate assembly for a file
+src/InvIndex.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/InvIndex.cpp.s
+.PHONY : src/InvIndex.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... src/Cutter.o"
 	@echo "... src/Cutter.i"
 	@echo "... src/Cutter.s"
+	@echo "... src/InvIndex.o"
+	@echo "... src/InvIndex.i"
+	@echo "... src/InvIndex.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

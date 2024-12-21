@@ -1,26 +1,14 @@
 #include "Cutter.h"
 #include "includes.h"
-#include <leveldb/db.h>
+#include "InvIndex.h"
 
-template <typename ...ARGS>
-void print(ARGS const& ...args) {
-	((std::cout << args) << ... ) << std::endl;
-}
-
-const std::string ROOT_PATH = "/Users/wuming/Desktop/Engine/Datas/Inv_index/";
-void test() {
-	leveldb::DB *db = nullptr;
-	leveldb::Options options;
-	options.create_if_missing = true;
-	leveldb::Status status = leveldb::DB::Open(options, ROOT_PATH + std::string("inv"), &db);
-
-	std::cout << "db started, status: " << status.ToString() << std::endl;
-	assert(status.ok());
-	delete db;
-}
 
 int main() {
-	print(__FILE__);
-	test();
+	std::string text {R"(分配设备：用户输入作业名、设备类名和相对号。系统检查设备类表，若有空闲设备，则从设备表中选择符合条件的设备并分配给作业，更新设备类表和设备表中的状态。
+	•	回收设备：用户输入作业名和设备类名，系统查找设备表中的作业名，释放设备并更新状态，设备类表中的“现存好的设备”数增加。)"};
+	Cutter cutter {};
+	// std::vector<std::string> words;
+	auto words = cutter.advancedDivorce(text);
+	std::cout << words << std::endl;	
 	return 0;
 }

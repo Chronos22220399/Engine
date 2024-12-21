@@ -85,12 +85,12 @@ clean: CMakeFiles/Engine.dir/clean
 CMakeFiles/Engine.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=1,2,3 "Built target Engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/wuming/Desktop/Engine/build/CMakeFiles --progress-num=1,2,3,4 "Built target Engine"
 .PHONY : CMakeFiles/Engine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Engine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/wuming/Desktop/Engine/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/wuming/Desktop/Engine/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Engine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/wuming/Desktop/Engine/build/CMakeFiles 0
 .PHONY : CMakeFiles/Engine.dir/rule
