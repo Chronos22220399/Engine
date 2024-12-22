@@ -11,9 +11,12 @@ project(
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# 第三方库目录
+# set(THIRD_PARTY_DIR ${CMAKE_SOURCE_DIR}/thirdparty)
 # 暂时使用硬编码
-set(LEVELDB_INCLUDE_DIRS /opt/homebrew/Cellar/leveldb/1.23_1/include)
-set(LEVELDB_LIBRARIES /opt/homebrew/Cellar/leveldb/1.23_1/lib)
+# set(LEVELDB_INCLUDE_DIRS /opt/homebrew/Cellar/leveldb/1.23_1/include)
+# set(LEVELDB_LIBRARIES /opt/homebrew/Cellar/leveldb/1.23_1/lib)
 
 file(
     GLOB_RECURSE 
@@ -25,7 +28,7 @@ file(
 file(
     GLOB_RECURSE
     CPPJIEBA_SOURCES
-    "cppjieba/include/*.hpp"
+    "thirdparty/cppjieba/include/*.hpp"
 )
 
 file(
@@ -37,7 +40,7 @@ file(
 
 find_package(fmt REQUIRED)
 
-include_directories(cppjieba/include)
+include_directories(thirdparty/cppjieba/include)
 # link_directories("cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${INCLUDES} ${CPPJIEBA_SOURCES})
@@ -53,8 +56,8 @@ target_include_directories(
     ${PROJECT_NAME} 
     PRIVATE 
     ${CMAKE_SOURCE_DIR}/include 
-    ${CMAKE_SOURCE_DIR}/cppjieba/include
-    ${CMAKE_SOURCE_DIR}/cppjieba/deps/limonp/include
+    ${CMAKE_SOURCE_DIR}/thirdparty/cppjieba/include
+    ${CMAKE_SOURCE_DIR}/thirdparty/cppjieba/deps/limonp/include
     ${LEVELDB_INCLUDE_DIRS}
 )
 

@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/wuming/Desktop/Engine
+CMAKE_SOURCE_DIR = /home/ess/Code/Cpp/Engine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/wuming/Desktop/Engine/build
+CMAKE_BINARY_DIR = /home/ess/Code/Cpp/Engine/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/wuming/Desktop/Engine/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/opt/homebrew/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/opt/homebrew/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/wuming/Desktop/Engine/build/CMakeFiles /Users/wuming/Desktop/Engine/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ess/Code/Cpp/Engine/build/CMakeFiles /home/ess/Code/Cpp/Engine/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/wuming/Desktop/Engine/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ess/Code/Cpp/Engine/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,53 +129,77 @@ Engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/build
 .PHONY : Engine/fast
 
-src/Cutter.o: src/Cutter.cpp.o
-.PHONY : src/Cutter.o
+src/cutter.o: src/cutter.cpp.o
+.PHONY : src/cutter.o
 
 # target to build an object file
-src/Cutter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Cutter.cpp.o
-.PHONY : src/Cutter.cpp.o
+src/cutter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/cutter.cpp.o
+.PHONY : src/cutter.cpp.o
 
-src/Cutter.i: src/Cutter.cpp.i
-.PHONY : src/Cutter.i
+src/cutter.i: src/cutter.cpp.i
+.PHONY : src/cutter.i
 
 # target to preprocess a source file
-src/Cutter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Cutter.cpp.i
-.PHONY : src/Cutter.cpp.i
+src/cutter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/cutter.cpp.i
+.PHONY : src/cutter.cpp.i
 
-src/Cutter.s: src/Cutter.cpp.s
-.PHONY : src/Cutter.s
+src/cutter.s: src/cutter.cpp.s
+.PHONY : src/cutter.s
 
 # target to generate assembly for a file
-src/Cutter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Cutter.cpp.s
-.PHONY : src/Cutter.cpp.s
+src/cutter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/cutter.cpp.s
+.PHONY : src/cutter.cpp.s
 
-src/InvIndex.o: src/InvIndex.cpp.o
-.PHONY : src/InvIndex.o
+src/egutils.o: src/egutils.cpp.o
+.PHONY : src/egutils.o
 
 # target to build an object file
-src/InvIndex.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/InvIndex.cpp.o
-.PHONY : src/InvIndex.cpp.o
+src/egutils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/egutils.cpp.o
+.PHONY : src/egutils.cpp.o
 
-src/InvIndex.i: src/InvIndex.cpp.i
-.PHONY : src/InvIndex.i
+src/egutils.i: src/egutils.cpp.i
+.PHONY : src/egutils.i
 
 # target to preprocess a source file
-src/InvIndex.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/InvIndex.cpp.i
-.PHONY : src/InvIndex.cpp.i
+src/egutils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/egutils.cpp.i
+.PHONY : src/egutils.cpp.i
 
-src/InvIndex.s: src/InvIndex.cpp.s
-.PHONY : src/InvIndex.s
+src/egutils.s: src/egutils.cpp.s
+.PHONY : src/egutils.s
 
 # target to generate assembly for a file
-src/InvIndex.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/InvIndex.cpp.s
-.PHONY : src/InvIndex.cpp.s
+src/egutils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/egutils.cpp.s
+.PHONY : src/egutils.cpp.s
+
+src/inv_index.o: src/inv_index.cpp.o
+.PHONY : src/inv_index.o
+
+# target to build an object file
+src/inv_index.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/inv_index.cpp.o
+.PHONY : src/inv_index.cpp.o
+
+src/inv_index.i: src/inv_index.cpp.i
+.PHONY : src/inv_index.i
+
+# target to preprocess a source file
+src/inv_index.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/inv_index.cpp.i
+.PHONY : src/inv_index.cpp.i
+
+src/inv_index.s: src/inv_index.cpp.s
+.PHONY : src/inv_index.s
+
+# target to generate assembly for a file
+src/inv_index.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/inv_index.cpp.s
+.PHONY : src/inv_index.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -210,12 +234,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Engine"
-	@echo "... src/Cutter.o"
-	@echo "... src/Cutter.i"
-	@echo "... src/Cutter.s"
-	@echo "... src/InvIndex.o"
-	@echo "... src/InvIndex.i"
-	@echo "... src/InvIndex.s"
+	@echo "... src/cutter.o"
+	@echo "... src/cutter.i"
+	@echo "... src/cutter.s"
+	@echo "... src/egutils.o"
+	@echo "... src/egutils.i"
+	@echo "... src/egutils.s"
+	@echo "... src/inv_index.o"
+	@echo "... src/inv_index.i"
+	@echo "... src/inv_index.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
