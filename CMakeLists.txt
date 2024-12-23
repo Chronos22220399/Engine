@@ -15,8 +15,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # 第三方库目录
 # set(THIRD_PARTY_DIR ${CMAKE_SOURCE_DIR}/thirdparty)
 # 暂时使用硬编码
-# set(LEVELDB_INCLUDE_DIRS /opt/homebrew/Cellar/leveldb/1.23_1/include)
-# set(LEVELDB_LIBRARIES /opt/homebrew/Cellar/leveldb/1.23_1/lib)
+set(LEVELDB_INCLUDE_DIRS /opt/homebrew/Cellar/leveldb/1.23_2/include)
+set(LEVELDB_LIBRARIES /opt/homebrew/Cellar/leveldb/1.23_2/lib)
 
 file(
     GLOB_RECURSE 

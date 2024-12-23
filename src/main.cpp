@@ -1,62 +1,73 @@
 #include "cutter.h"
+#include "egutils.h"
 #include "includes.h"
-#include "InvIndex.h"
+#include "inv_index.h"
 
+template <typename Key, typename Value>
 struct Node {
-    int key;
-    int value;
+	static_assert(has_hash_v<Key>);
+
+	explicit Node() = default;
+
+	explicit Node(Key const &key, Value const &value)
+		: key(key),
+		  value(value) {}
+
+	explicit Node(Key &&key, Value &&value)
+		: key(std::move(key)),
+		  value(std::move(value)) {}
+
+	~Node() = default;
+
+	Key key;
+	Value value;
 };
 
-class Cache {};
+template <typename Key = int, typename Value = int,
+		  typename Container = std::list<Node<Key, Value>>>
+class Cache {
+	static_assert(is_iterable_v<Container> and has_hash_v<Key>);
 
-class LRUCache {
 public:
-    LRUCache(size_t const &capacity) : capacity(capacity) {}
+	using containerIterator = typename Container::iterator;
 
-    int doWhenNotFound() {
-        return -1;
-    };
+	// 将信息存入缓存
+	virtual void put(Key const &key, Value const &value) = 0;
 
-    int doWhenFound(int value) {
-        return value;
-    }
+	// 获取信息
+	// virtual std::optional<Value> get(Key const &key) = 0;
 
-    int get(int key) {
-        auto const it = keyToIterator.find(key);
-        if (it == keyToIterator.cend()) {
-            return doWhenNotFound();
-        }
-        auto const &listIt = it->second;
-        cache.splice(cache.begin(), cache, listIt);
-        return doWhenFound(listIt->value);
-    }
+protected:
+	// 获取信息时未能找到信息
+	// virtual std::optional<Value> doNotFoundKeyWhenGetting(Key const &key) =
+	// 0;
 
-    void put(int key, int value) {
-        if (auto const it = keyToIterator.find(key);
-            it != keyToIterator.cend()) {
-            auto const &listIt = it->second;
-            cache.splice(cache.begin(), cache, listIt);
-            listIt->value = value;
-        }
-        if (cache.size() == capacity) {
-            Node const &lastNode = cache.back();
-            keyToIterator.erase(lastNode.key);
-            cache.pop_back();
-        }
-        cache.emplace_back(key, value);
-        keyToIterator[key] = cache.begin();
-    }
+	// 获取信息时找到了信息返回时
+	// virtual std::optional<Value> foundKeyWhenGetting(Key const &key) = 0;
 
 private:
-    size_t const capacity;
-    std::list<Node> cache;
-    std::unordered_map<int, std::list<Node>::iterator> keyToIterator;
+	std::unordered_map<Key, containerIterator> keyToIterator;
+	Container cache;
+};
+
+template <typename Key = int, typename Value = int,
+		  typename Container = std::list<Node<Key, Value>>>
+class LRUCache : public Cache<Key, Value, Container> {
+	static_assert(is_iterable_v<Container> and has_hash_v<Key>);
+
+public:
+	void put(Key const &key, Value const &value) {
+		// 若使用的是 list
+		if constexpr (has_splice_v<std::decay_t<Container>>) {
+			std::cout << "hello\n";
+		}
+		// 暂时只支持 list
+		static_assert(has_splice_v<std::decay_t<Container>>, "当前版本仅支持 list\n");
+	}
 };
 
 int main() {
-    LRUCache lru {10};
-    lru.put(10, 20);
-    std::cout << lru.get(10) << std::endl;
-    std::cout << lru.get(1) << std::endl;
-    return 0;
+	LRUCache<int, int, std::vector<Node<int, int>>> lru;
+	lru.put(1, 1);
+	return 0;
 }

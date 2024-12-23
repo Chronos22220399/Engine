@@ -15,6 +15,6 @@ public:
 
 private:
     cppjieba::Jieba jieba;
-    Egutils::TextProcessor text_processor;
-    Egutils::CharUtils char_utils;
+    TextProcessor text_processor;
+    CharUtils char_utils;
 };

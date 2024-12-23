@@ -1,6 +1,5 @@
 #include "egutils.h"
 
-namespace Egutils {
 
 TextProcessor::TextProcessor()
     : jieba("../cppjieba/dict/jieba.dict.utf8",
@@ -126,9 +125,7 @@ std::string CharUtils::wideToUtf8(wchar_t wideChar) {
 
 void CharUtils::extractChar(
     std::set<std::string> &s,
-    std::wstring const &charSet =
-        L" ,,.\"\'`~!/\\<•>-=()_@#$%^*。，《》（）-——；：'"
-        "{}「」,“”【】～·！？、，") {
+    std::wstring const &charSet) {
     // 遍历宽字符集
     for (auto const &c: charSet) {
         // 将宽字符转换为 UTF-8 编码的字符串
@@ -136,5 +133,3 @@ void CharUtils::extractChar(
         s.erase(str_char); // 删除字符
     }
 }
-
-} // namespace Egutils

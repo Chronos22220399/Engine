@@ -1,7 +1,7 @@
-set(CMAKE_CXX_COMPILER "/usr/bin/c++")
+set(CMAKE_CXX_COMPILER "/opt/homebrew/bin/aarch64-apple-darwin23-g++-14")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
-set(CMAKE_CXX_COMPILER_VERSION "14.2.1")
+set(CMAKE_CXX_COMPILER_VERSION "14.2.0")
 set(CMAKE_CXX_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_CXX_COMPILER_WRAPPER "")
 set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "17")
@@ -16,27 +16,28 @@ set(CMAKE_CXX20_COMPILE_FEATURES "cxx_std_20")
 set(CMAKE_CXX23_COMPILE_FEATURES "cxx_std_23")
 set(CMAKE_CXX26_COMPILE_FEATURES "cxx_std_26")
 
-set(CMAKE_CXX_PLATFORM_ID "Linux")
+set(CMAKE_CXX_PLATFORM_ID "Darwin")
 set(CMAKE_CXX_SIMULATE_ID "")
 set(CMAKE_CXX_COMPILER_FRONTEND_VARIANT "GNU")
 set(CMAKE_CXX_SIMULATE_VERSION "")
 
-
+set(CMAKE_CXX_COMPILER_SYSROOT "/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr")
+set(CMAKE_COMPILER_SYSROOT "/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr")
 
 
 set(CMAKE_AR "/usr/bin/ar")
-set(CMAKE_CXX_COMPILER_AR "/usr/bin/gcc-ar")
+set(CMAKE_CXX_COMPILER_AR "/opt/homebrew/bin/aarch64-apple-darwin23-gcc-ar-14")
 set(CMAKE_RANLIB "/usr/bin/ranlib")
-set(CMAKE_CXX_COMPILER_RANLIB "/usr/bin/gcc-ranlib")
+set(CMAKE_CXX_COMPILER_RANLIB "/opt/homebrew/bin/aarch64-apple-darwin23-gcc-ranlib-14")
 set(CMAKE_LINKER "/usr/bin/ld")
 set(CMAKE_LINKER_LINK "")
 set(CMAKE_LINKER_LLD "")
 set(CMAKE_CXX_COMPILER_LINKER "/usr/bin/ld")
-set(CMAKE_CXX_COMPILER_LINKER_ID "GNU")
-set(CMAKE_CXX_COMPILER_LINKER_VERSION 2.43.0)
+set(CMAKE_CXX_COMPILER_LINKER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_LINKER_VERSION 1022.1)
 set(CMAKE_CXX_COMPILER_LINKER_FRONTEND_VARIANT GNU)
 set(CMAKE_MT "")
-set(CMAKE_TAPI "CMAKE_TAPI-NOTFOUND")
+set(CMAKE_TAPI "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/tapi")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
 set(CMAKE_CXX_COMPILER_LOADED 1)
 set(CMAKE_CXX_COMPILER_WORKS TRUE)
@@ -62,7 +63,7 @@ set(CMAKE_CXX_LINKER_DEPFILE_SUPPORTED )
 
 # Save compiler ABI information.
 set(CMAKE_CXX_SIZEOF_DATA_PTR "8")
-set(CMAKE_CXX_COMPILER_ABI "ELF")
+set(CMAKE_CXX_COMPILER_ABI "")
 set(CMAKE_CXX_BYTE_ORDER "LITTLE_ENDIAN")
 set(CMAKE_CXX_LIBRARY_ARCHITECTURE "")
 
@@ -84,12 +85,12 @@ if(CMAKE_CXX_CL_SHOWINCLUDES_PREFIX)
 endif()
 
 
+set(CMAKE_CXX_SYSROOT_FLAG "-isysroot")
+set(CMAKE_CXX_OSX_DEPLOYMENT_TARGET_FLAG "-mmacosx-version-min=")
 
-
-
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/include/c++/14.2.1;/usr/include/c++/14.2.1/x86_64-pc-linux-gnu;/usr/include/c++/14.2.1/backward;/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include;/usr/local/include;/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include-fixed;/usr/include")
-set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;gcc_s;gcc;c;gcc_s;gcc")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1;/usr/lib;/lib")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/opt/homebrew/include;/opt/homebrew/Cellar/gcc/14.2.0_1/include/c++/14;/opt/homebrew/Cellar/gcc/14.2.0_1/include/c++/14/aarch64-apple-darwin23;/opt/homebrew/Cellar/gcc/14.2.0_1/include/c++/14/backward;/opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin23/14/include;/opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin23/14/include-fixed;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks")
+set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "emutls_w;heapt_w;stdc++;gcc")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/opt/homebrew/opt/mysql@8.4/lib;/opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin23/14;/opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc;/opt/homebrew/lib;/opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 set(CMAKE_CXX_COMPILER_CLANG_RESOURCE_DIR "")
 

@@ -1,26 +1,26 @@
 [
 {
-  "directory": "/home/ess/Code/Cpp/Engine/build",
-  "command": "/usr/bin/c++  -I/home/ess/Code/Cpp/Engine/thirdparty/cppjieba/include -I/home/ess/Code/Cpp/Engine/include -I/home/ess/Code/Cpp/Engine/thirdparty/cppjieba/deps/limonp/include -g -std=gnu++23 -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/cutter.cpp.o -c /home/ess/Code/Cpp/Engine/src/cutter.cpp",
-  "file": "/home/ess/Code/Cpp/Engine/src/cutter.cpp",
+  "directory": "/Users/wuming/Desktop/Engine/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/wuming/Desktop/Engine/thirdparty/cppjieba/include -I/Users/wuming/Desktop/Engine/include -I/Users/wuming/Desktop/Engine/thirdparty/cppjieba/deps/limonp/include -I/opt/homebrew/Cellar/leveldb/1.23_2/include -isystem /usr/local/include -g -std=gnu++2b -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/cutter.cpp.o -c /Users/wuming/Desktop/Engine/src/cutter.cpp",
+  "file": "/Users/wuming/Desktop/Engine/src/cutter.cpp",
   "output": "CMakeFiles/Engine.dir/src/cutter.cpp.o"
 },
 {
-  "directory": "/home/ess/Code/Cpp/Engine/build",
-  "command": "/usr/bin/c++  -I/home/ess/Code/Cpp/Engine/thirdparty/cppjieba/include -I/home/ess/Code/Cpp/Engine/include -I/home/ess/Code/Cpp/Engine/thirdparty/cppjieba/deps/limonp/include -g -std=gnu++23 -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/egutils.cpp.o -c /home/ess/Code/Cpp/Engine/src/egutils.cpp",
-  "file": "/home/ess/Code/Cpp/Engine/src/egutils.cpp",
+  "directory": "/Users/wuming/Desktop/Engine/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/wuming/Desktop/Engine/thirdparty/cppjieba/include -I/Users/wuming/Desktop/Engine/include -I/Users/wuming/Desktop/Engine/thirdparty/cppjieba/deps/limonp/include -I/opt/homebrew/Cellar/leveldb/1.23_2/include -isystem /usr/local/include -g -std=gnu++2b -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/egutils.cpp.o -c /Users/wuming/Desktop/Engine/src/egutils.cpp",
+  "file": "/Users/wuming/Desktop/Engine/src/egutils.cpp",
   "output": "CMakeFiles/Engine.dir/src/egutils.cpp.o"
 },
 {
-  "directory": "/home/ess/Code/Cpp/Engine/build",
-  "command": "/usr/bin/c++  -I/home/ess/Code/Cpp/Engine/thirdparty/cppjieba/include -I/home/ess/Code/Cpp/Engine/include -I/home/ess/Code/Cpp/Engine/thirdparty/cppjieba/deps/limonp/include -g -std=gnu++23 -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/inv_index.cpp.o -c /home/ess/Code/Cpp/Engine/src/inv_index.cpp",
-  "file": "/home/ess/Code/Cpp/Engine/src/inv_index.cpp",
+  "directory": "/Users/wuming/Desktop/Engine/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/wuming/Desktop/Engine/thirdparty/cppjieba/include -I/Users/wuming/Desktop/Engine/include -I/Users/wuming/Desktop/Engine/thirdparty/cppjieba/deps/limonp/include -I/opt/homebrew/Cellar/leveldb/1.23_2/include -isystem /usr/local/include -g -std=gnu++2b -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/inv_index.cpp.o -c /Users/wuming/Desktop/Engine/src/inv_index.cpp",
+  "file": "/Users/wuming/Desktop/Engine/src/inv_index.cpp",
   "output": "CMakeFiles/Engine.dir/src/inv_index.cpp.o"
 },
 {
-  "directory": "/home/ess/Code/Cpp/Engine/build",
-  "command": "/usr/bin/c++  -I/home/ess/Code/Cpp/Engine/thirdparty/cppjieba/include -I/home/ess/Code/Cpp/Engine/include -I/home/ess/Code/Cpp/Engine/thirdparty/cppjieba/deps/limonp/include -g -std=gnu++23 -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/main.cpp.o -c /home/ess/Code/Cpp/Engine/src/main.cpp",
-  "file": "/home/ess/Code/Cpp/Engine/src/main.cpp",
+  "directory": "/Users/wuming/Desktop/Engine/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/wuming/Desktop/Engine/thirdparty/cppjieba/include -I/Users/wuming/Desktop/Engine/include -I/Users/wuming/Desktop/Engine/thirdparty/cppjieba/deps/limonp/include -I/opt/homebrew/Cellar/leveldb/1.23_2/include -isystem /usr/local/include -g -std=gnu++2b -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -O0 -Wall -Werror -pedantic -o CMakeFiles/Engine.dir/src/main.cpp.o -c /Users/wuming/Desktop/Engine/src/main.cpp",
+  "file": "/Users/wuming/Desktop/Engine/src/main.cpp",
   "output": "CMakeFiles/Engine.dir/src/main.cpp.o"
 }
 ]
