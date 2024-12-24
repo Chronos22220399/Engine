@@ -67,7 +67,7 @@ public:
 };
 
 int main() {
-	LRUCache<int, int, std::vector<Node<int, int>>> lru;
+	LRUCache<int, int, std::list<Node<int, int>>> lru;
 	lru.put(1, 1);
 	return 0;
 }
