@@ -1,3 +1,0 @@
-/home/Ess/Code/Cpp/Engine/build/CMakeFiles/Engine.dir
-/home/Ess/Code/Cpp/Engine/build/CMakeFiles/edit_cache.dir
-/home/Ess/Code/Cpp/Engine/build/CMakeFiles/rebuild_cache.dir
