@@ -131,7 +131,7 @@ public:
             keyToIterator.erase(lastNode.key);
             cache.pop_back();
         }
-        cache.emplace_back(key, value);
+        cache.emplace_front(key, value);
         keyToIterator[key] = cache.begin();
     }
 
