@@ -1,3 +1,4 @@
+#pragma once
 #include "cutter.h"
 #include "includes.h"
 
@@ -6,7 +7,7 @@ static std::vector<std::string> words;
 
 void test(std::string const &text) {
 	auto start = std::chrono::high_resolution_clock::now();
-	cutter.advancedDivorce(text, words);
+	cutter.advancedDivorce(text);
 	auto end = std::chrono::high_resolution_clock::now();
 	auto duration =
 		std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);

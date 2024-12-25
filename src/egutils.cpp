@@ -2,10 +2,10 @@
 
 
 TextProcessor::TextProcessor()
-    : jieba("../cppjieba/dict/jieba.dict.utf8",
-            "../cppjieba/dict/hmm_model.utf8",
-            "../cppjieba/dict/user.dict.utf8", "../cppjieba/dict/idf.utf8",
-            "../cppjieba/dict/stop_words.utf8") {}
+    : jieba(JIEBADICT_ROOT + std::string("jieba.dict.utf8"),
+            JIEBADICT_ROOT + "hmm_model.utf8",
+            JIEBADICT_ROOT + "user.dict.utf8", JIEBADICT_ROOT + "idf.utf8",
+            JIEBADICT_ROOT + "stop_words.utf8") {}
 
 std::set<std::string>
 TextProcessor::getIntersection(std::string const &left,
@@ -99,7 +99,7 @@ std::string TextProcessor::advancedProcess(std::string const &text) const {
     return ret;
 }
 
-std::string CharUtils::wideToUtf8(wchar_t wideChar) {
+std::string CharUtils::wideToUtf8(wchar_t wideChar) const {
     std::string utf8Str;
     if (wideChar <= 0x7F) {
         // 单字节字符
@@ -125,7 +125,7 @@ std::string CharUtils::wideToUtf8(wchar_t wideChar) {
 
 void CharUtils::extractChar(
     std::set<std::string> &s,
-    std::wstring const &charSet) {
+    std::wstring const &charSet) const {
     // 遍历宽字符集
     for (auto const &c: charSet) {
         // 将宽字符转换为 UTF-8 编码的字符串

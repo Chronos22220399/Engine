@@ -1,17 +1,12 @@
 #include "cutter.h"
-#include "fmt/format.h"
-#include "includes.h"
-#include <codecvt>
-#include <locale>
-
 
 Cutter::Cutter()
-	: jieba("../cppjieba/dict/jieba.dict.utf8",
-			"../cppjieba/dict/hmm_model.utf8",
-			"../cppjieba/dict/user.dict.utf8", "../cppjieba/dict/idf.utf8",
-			"../cppjieba/dict/stop_words.utf8") {}
+    : jieba(JIEBADICT_ROOT + std::string("jieba.dict.utf8"),
+            JIEBADICT_ROOT + "hmm_model.utf8",
+            JIEBADICT_ROOT + "user.dict.utf8", JIEBADICT_ROOT + "idf.utf8",
+            JIEBADICT_ROOT + "stop_words.utf8") {}
 
-std::set<std::string> Cutter::normalDivorce(std::string const &text) {
+std::set<std::string> Cutter::normalDivorce(std::string const &text) const {
 	std::vector<std::string> words;
 	std::set<std::string> result{};
 	jieba.CutForSearch(text, words, true);
@@ -21,7 +16,7 @@ std::set<std::string> Cutter::normalDivorce(std::string const &text) {
 	return result;
 }
 
-std::set<std::string> Cutter::advancedDivorce(std::string const &text) {
+std::set<std::string> Cutter::advancedDivorce(std::string const &text) const {
 	std::vector<std::string> words;
 	std::set<std::string> result{};
 	std::string sentence = text_processor.advancedProcess(text);

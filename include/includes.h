@@ -1,6 +1,5 @@
 #pragma once
-
-#include <iostream>
+// 容器
 #include <optional>
 #include <vector>
 #include <list>
@@ -8,22 +7,24 @@
 #include <set>
 #include <string>
 #include <cstring>
-#include <algorithm>
 #include <functional>
-#include <type_traits>
-#include <chrono>
 #include <map>
 #include <unordered_map>
 #include <queue>
+// 多线程
+#include <mutex>
+#include <thread>
+#include <future>
+#include <condition_variable>
+// 工具
+#include <unistd.h>
 #include "fmt/format.h"
+#include <chrono>
+#include <iostream>
+#include <type_traits>
+#include <algorithm>
 
-#define LOG() \
-    fmt::print("[{}:{}] {}\n", \
-               (std::string(__FILE__).substr(std::string(__FILE__).find("Engine/src"))), \
-               __LINE__, \
-               __FUNCTION__ \
-               )
-
+inline const std::string JIEBADICT_ROOT = "./thirdparty/cppjieba/dict/";
 /* namespace std { */
 /*  */
 /* template <typename T, typename = const char*> */

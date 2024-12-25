@@ -1,5 +1,6 @@
 #pragma once
 #include "includes.h"
+#include "egutils.h"
 #include <fmt/format.h>
 #include <leveldb/db.h>
 #include <leveldb/write_batch.h>

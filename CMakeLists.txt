@@ -26,6 +26,7 @@ file(
     SOURCES
     # "main.cpp"
     "src/*.cpp"
+    "demo/*.hpp"
 )
 
 file(
@@ -51,7 +52,8 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${INCLUDES} ${CPPJIEBA_SOURCES})
 target_link_libraries(
     ${PROJECT_NAME}
     PRIVATE
-    ${LEVELDB_LIBRARIES}/libleveldb.dylib
+    # ${LEVELDB_LIBRARIES}/libleveldb.dylib
+    leveldb
     fmt::fmt
 )
 
@@ -61,6 +63,7 @@ target_include_directories(
     ${CMAKE_SOURCE_DIR}/include 
     ${CMAKE_SOURCE_DIR}/thirdparty/cppjieba/include
     ${CMAKE_SOURCE_DIR}/thirdparty/cppjieba/deps/limonp/include
+    ${CMAKE_SOURCE_DIR}/demo
     # ${LEVELDB_INCLUDE_DIRS}
     leveldb
 )

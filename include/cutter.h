@@ -8,10 +8,11 @@ class Cutter {
 public:
     Cutter();
 
-    std::set<std::string> normalDivorce(std::string const& text);
+    Cutter(Cutter const&) = delete;
 
-    std::set<std::string> advancedDivorce(std::string const& text);
+    std::set<std::string> normalDivorce(std::string const& text) const;
 
+    std::set<std::string> advancedDivorce(std::string const& text) const;
 
 private:
     cppjieba::Jieba jieba;
