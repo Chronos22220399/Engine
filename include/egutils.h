@@ -1,9 +1,15 @@
 #pragma once
-#include "cppjieba/Jieba.hpp"
 #include "includes.h"
+#include "cppjieba/Jieba.hpp"
 
+#define LOG() \
+    fmt::print("[{}:{}] {}\n", \
+               (std::string(__FILE__).substr(std::string(__FILE__).find("Engine/src"))), \
+               __LINE__, \
+               __FUNCTION__ \
+               )
 /*
-矫验
+校验
 */
 template <typename T, typename = void>
 struct has_hash : std::false_type {};
@@ -47,14 +53,14 @@ inline constexpr bool is_iterable_v = is_iterable<Container>::value;
 template <typename Container>
 inline constexpr bool has_splice_v = has_splice<Container>::value;
 /*
-矫验
+校验
 */
 
 /*
  打印容器内容
 */
 template <typename T>
-auto display(T const &t) {
+inline auto display(T const &t) {
 	for (auto &elem: t) {
 		std::cout << elem << " ";
 	}
@@ -84,14 +90,26 @@ struct CharUtils {
 	void extractChar(std::set<std::string> &s,
 					 std::wstring const &charSet =
 						 L" ,,.\"\'`~!/\\<•>-=()_@#$%^*。，《》（）-——；：'"
-						 "{}「」,“”【】～·！？、，");
+						 "{}「」,“”【】～·！？、，") const;
 
-	std::string wideToUtf8(wchar_t wideChar);
+	std::string wideToUtf8(wchar_t wideChar) const;
 };
 
 /*
- 打印容器内容
+检查并根据情况更改当前工作路径 
 */
+inline void changeWorkSpace() {
+	char cwd[1024];
+	if ((getcwd(cwd, sizeof(cwd))) != nullptr) {
+		auto s_cwd = std::string(cwd);
+		fmt::print("当前工作路径: {}\n", s_cwd);
+		if (s_cwd.substr(s_cwd.find_last_of("/"), -1) == "/build") {
+			fmt::print("正在更改工作路径...\n");
+			chdir("../");
+		}
+	}
+}
+
 
 /***********************************************/
 // 已废弃

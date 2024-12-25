@@ -15,14 +15,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # 第三方库目录
 # set(THIRD_PARTY_DIR ${CMAKE_SOURCE_DIR}/thirdparty)
 # 暂时使用硬编码
-set(LEVELDB_INCLUDE_DIRS /opt/homebrew/Cellar/leveldb/1.23_2/include)
-set(LEVELDB_LIBRARIES /opt/homebrew/Cellar/leveldb/1.23_2/lib)
+# set(LEVELDB_INCLUDE_DIRS /opt/homebrew/Cellar/leveldb/1.23_2/include)
+# set(LEVELDB_LIBRARIES /opt/homebrew/Cellar/leveldb/1.23_2/lib)
+
+# archlinux 上
+find_package(leveldb REQUIRED)
 
 file(
     GLOB_RECURSE 
     SOURCES
     # "main.cpp"
     "src/*.cpp"
+    "demo/*.hpp"
 )
 
 file(
@@ -48,7 +52,8 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${INCLUDES} ${CPPJIEBA_SOURCES})
 target_link_libraries(
     ${PROJECT_NAME}
     PRIVATE
-    ${LEVELDB_LIBRARIES}/libleveldb.dylib
+    # ${LEVELDB_LIBRARIES}/libleveldb.dylib
+    leveldb
     fmt::fmt
 )
 
@@ -58,7 +63,9 @@ target_include_directories(
     ${CMAKE_SOURCE_DIR}/include 
     ${CMAKE_SOURCE_DIR}/thirdparty/cppjieba/include
     ${CMAKE_SOURCE_DIR}/thirdparty/cppjieba/deps/limonp/include
-    ${LEVELDB_INCLUDE_DIRS}
+    ${CMAKE_SOURCE_DIR}/demo
+    # ${LEVELDB_INCLUDE_DIRS}
+    leveldb
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE
