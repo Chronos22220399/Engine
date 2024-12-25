@@ -69,56 +69,11 @@ private:
 		return {result};
 	}
 
-	/*
-		倒排索引的缓存
-	*/
-	struct InvCache {
-		std::map<std::string, std::set<size_type>> cache;
-		// Set capacity of lines
-		std::optional<size_type> resize(size_type capacity);
-		// Initialize the cache, return the inserted elem count
-		std::optional<size_type> initialize(size_type capacity);
-		// Insert value when running(runtime)
-		std::optional<size_type> insert(DocWordsWithId const &doc);
-		// Get doc id set by single word when running
-		std::optional<std::set<size_type>> get(std::string const &word);
-		// Get doc id lists by words list when running
-		std::optional<std::set<size_type>>
-		getWords(std::set<std::string> words);
-
-		// Display to debug
-		void display() {
-			for (auto const &key: cache) {
-				std::cout << key.first << " : ";
-				for (auto const &elem: key.second) {
-					std::cout << elem << std::endl;
-				}
-			}
-		}
-
-		// Get the instance of cache
-		static inline InvCache &getCache() {
-			static InvCache instance{};
-			return instance;
-		}
-
-		InvCache(InvCache const &) = delete;
-		InvCache &operator=(InvCache const &) = delete;
-
-	private:
-		InvCache() = default;
-		size_t capacity;
-		size_t size;
-	};
 
 public:
 	static inline InvIndex &getInv() {
 		static InvIndex instance{};
 		return instance;
-	}
-
-	static inline InvCache &getCache() {
-		return InvCache::getCache();
 	}
 
 	leveldb::DB *db = nullptr;

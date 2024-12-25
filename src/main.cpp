@@ -1,22 +1,47 @@
+#include "cache.hpp"
 #include "cutter.h"
 #include "egutils.h"
 #include "includes.h"
 #include "inv_index.h"
-#include "cache.hpp"
-#include "thread_pool.hpp"
 #include "test_threadpool.hpp"
+#include "thread_pool.hpp"
+
+template <typename Key, typename Value,
+		  typename Container = std::list<Node<Key, Value>>>
+using ListLRUCache = LRUCache<Key, Value, Container>;
+
+using size_type = uint32_t;
+using InvNode = Node<std::string, std::set<size_type>>;
+
+// MARK: 还需要完成上锁相关的内容，具体在 cache.hpp 中
+class InvLRUCache : public ListLRUCache<std::string, std::set<size_type>,
+										std::list<InvNode>> {
+public:
+	auto doNotFoundKey(std::string const &key)
+		-> std::optional<std::set<size_type>> override {
+		auto result = inv->getSingle(key);
+		if (result.has_value()) {
+			this->put(key, result.value());
+			return result;
+		}
+		return std::nullopt;
+	}
+
+private:
+	std::shared_ptr<InvIndex> inv;
+};
 
 int main() {
-	changeWorkSpace();
-	Cutter cutter;
-	test_threadpool(cutter);
-	// std::cout
-	// 	<< has_splice_v<std::decay_t<std::list<Node<int, int>>>> << std::endl;
-	// LRUCache<int, int, std::list<Node<int, int>>> lru;
-	// lru.put(1, 1);
-	// auto value = lru.get(2);
-	// if (value.has_value()) {
-	// 	std::cout << value.value() << std::endl;
-	// }
+	InvLRUCache lru;
+	lru.put("heelo", {1});
+	auto value = lru.get("heelo");
+	if (value.has_value()) {
+		for (auto &v: value.value()) {
+			std::cout << v << std::endl;
+		}
+	}
+	// changeWorkSpace();
+	// Cutter cutter;
+	// test_threadpool(cutter);
 	return 0;
 }
