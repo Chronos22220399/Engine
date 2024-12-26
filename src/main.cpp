@@ -33,17 +33,20 @@ private:
 
 
 int main() {
-	changeWorkSpace();
-	Cutter cutter;
-	test_threadpool(cutter);
+	DocWordsWithId did({"hello", "湖北工业大学"}, 2);
+	InvIndex::getInstance().putBatch(std::move(did));
+	// InvIndex::getInstance().displayNth();
+	// changeWorkSpace();
+	// Cutter cutter;
+	// test_threadpool(cutter);
 	
-	InvLRUCache lru;
-	lru.put("heelo", {1});
-	auto value = lru.get("heelo");
-	if (value.has_value()) {
-		for (auto &v: value.value()) {
-			std::cout << v << std::endl;
-		}
-	}
+	// InvLRUCache lru;
+	// lru.put("heelo", {1});
+	// auto value = lru.get("heelo");
+	// if (value.has_value()) {
+	// 	for (auto &v: value.value()) {
+	// 		std::cout << v << std::endl;
+	// 	}
+	// }
 	return 0;
 }

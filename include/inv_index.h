@@ -22,6 +22,7 @@ public:
 
 class InvIndex {
 	using size_type = uint32_t;
+	std::string erase_password = "Essearch123456";
 
 public:
 	~InvIndex();
@@ -45,6 +46,12 @@ public:
 	std::optional<std::map<std::string, std::set<size_type>>>
 	getInvIndexNCnt(size_type const &count);
 
+	// 查看前 n 条内容
+	void displayNth(size_type n = -1);
+
+	// 清空索引
+	void eraseAll();
+
 	InvIndex(InvIndex const &) = delete;
 
 	InvIndex &operator=(InvIndex const &) = delete;
@@ -66,17 +73,18 @@ private:
 			fmt::println("{}", status.ToString(), __FILE__);
 			return std::nullopt;
 		}
-		return {result};
+		return std::optional{result};
 	}
 
 
 public:
-	static inline InvIndex &getInv() {
+	static inline InvIndex &getInstance() {
 		static InvIndex instance{};
 		return instance;
 	}
 
+	size_type size;
 	leveldb::DB *db = nullptr;
-	std::string const ROOT_PATH = "/Users/wuming/Desktop/Engine/Datas/";
+	std::string const ROOT_PATH = "/home/Ess/Code/Project/Essearch/Engine/Datas/";
 };
 
