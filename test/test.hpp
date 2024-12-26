@@ -1,6 +1,7 @@
 #pragma once
 #include "cutter.h"
 #include "includes.h"
+#include "inv_index.h"
 
 static Cutter cutter{};
 static std::vector<std::string> words;
@@ -22,4 +23,22 @@ void test_1() {
 	// std::vector<std::string> words;
 	auto words = cutter.advancedDivorce(text);
 	std::cout << words << std::endl;	
+}
+
+
+void test_inv_index() {
+	DocWordsWithId did({"hello", "湖北工业大学"}, 2);
+	// InvIndex::getInstance().putBatch(std::move(did));
+	InvIndex::getInstance().putSingle({"再也", 2});
+	// auto result = InvIndex::getInstance().getSingle("s");
+	// auto result = InvIndex::getInstance().getByWords({"s", "hello", "湖北工业大学"});
+	// if (not result.has_value()) {
+	// 	fmt::print("元素不存在\n");
+	// 	return 0;
+	// }
+	// for (auto &id : result.value()) {
+	// 	std::cout << id << std::endl;
+	// }
+	InvIndex::getInstance().displayNth();
+	// InvIndex::getInstance().eraseAll();
 }

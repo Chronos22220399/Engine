@@ -35,6 +35,13 @@ struct is_iterable<Container,
 										std::end(std::declval<Container>()))>>
 	: std::true_type {};
 
+template <typename Cutter, typename = void>
+struct has_divorce: std::false_type {};
+
+template <typename Cutter>
+struct has_divorce<Cutter, std::void_t<decltype(std::declval<Cutter>().normalDivorce(std::declval<const std::string&>()))>>: std::true_type {};
+
+
 template <typename Container, typename = void>
 struct has_splice: std::false_type {};
 
@@ -52,6 +59,9 @@ inline constexpr bool is_iterable_v = is_iterable<Container>::value;
 
 template <typename Container>
 inline constexpr bool has_splice_v = has_splice<Container>::value;
+
+template <typename Cutter>
+inline constexpr bool has_divorce_v = has_divorce<Cutter>::value;
 /*
 校验
 */

@@ -20,13 +20,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # archlinux 上
 find_package(leveldb REQUIRED)
+find_package(fmt REQUIRED)
 
 file(
     GLOB_RECURSE 
     SOURCES
     # "main.cpp"
     "src/*.cpp"
-    "demo/*.hpp"
+    "test/*.hpp"
 )
 
 file(
@@ -41,11 +42,7 @@ file(
     "include/*.h"
 )
 
-
-find_package(fmt REQUIRED)
-
 include_directories(thirdparty/cppjieba/include)
-# link_directories("cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${INCLUDES} ${CPPJIEBA_SOURCES})
 
@@ -63,7 +60,7 @@ target_include_directories(
     ${CMAKE_SOURCE_DIR}/include 
     ${CMAKE_SOURCE_DIR}/thirdparty/cppjieba/include
     ${CMAKE_SOURCE_DIR}/thirdparty/cppjieba/deps/limonp/include
-    ${CMAKE_SOURCE_DIR}/demo
+    ${CMAKE_SOURCE_DIR}/test
     # ${LEVELDB_INCLUDE_DIRS}
     leveldb
 )

@@ -60,11 +60,10 @@ std::optional<InvIndex::size_type> InvIndex::putSingle(std::pair<std::string, si
     }
 
     if (status.IsNotFound()) {
-        ids = serialize(single_word.second);
-    } else {
-        ids.append(serialize(single_word.second));
+        status = db->Put(leveldb::WriteOptions(), single_word.first, serialize(single_word.second));
+        return checkStatus(status, 1);
     }
-
+    ids.append(serialize(single_word.second));
     status = db->Put(leveldb::WriteOptions(), single_word.first, ids);
     return checkStatus(status, 1);
 }
