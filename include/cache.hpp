@@ -43,13 +43,20 @@ public:
 
 protected:
 	// 获取信息时未能找到信息
-	virtual std::optional<Value> doNotFoundKeyWhenGetting(Key const &key) = 0;
+	virtual std::optional<Value> doNotFoundKey(Key const &key) = 0;
 
 	// 获取信息时找到了信息返回时
-	virtual std::optional<Value> foundKeyWhenGetting(Key const &key,
-													 Value const &value) = 0;
+	virtual std::optional<Value> foundKey(Key const &key,
+										  Value const &value) = 0;
+
+	// 获取信息时未能找到信息时的日志记录选项
+	virtual void logNotFoundKey(Key const &key) = 0;
+
+	// 获取信息时找到元素后
+	virtual void logFoundKey(Key const &key, Value const& value) = 0;
 
 	std::unordered_map<Key, containerIterator> keyToIterator;
+    std::mutex cacheMutex;
 	Container cache;
 	size_t capacity;
 };
@@ -98,24 +105,35 @@ public:
 		auto const &it = keyToIterator.find(key);
 		// 未能找到元素
 		if (it == keyToIterator.end()) {
-			return doNotFoundKeyWhenGetting(key);
+            // 日志记录选项
+            logNotFoundKey(key);
+			return doNotFoundKey(key);
 		}
 		Value const &retValue = it->second->value;
 		cache.splice(cache.begin(), cache, it->second);
-		return foundKeyWhenGetting(key, retValue);
+        // 日志记录选项
+        logFoundKey(key, retValue);
+		return foundKey(key, retValue);
 	}
 
-	virtual std::optional<Value>
-	doNotFoundKeyWhenGetting(Key const &key) override {
-		std::cout << "未能找到元素" << std::endl;
+	virtual std::optional<Value> doNotFoundKey(Key const &key) override {
+		fmt::print("未能找到 {} 对应的元素\n", key);
 		return std::nullopt;
 	}
 
-	virtual std::optional<Value>
-	foundKeyWhenGetting(Key const &key, Value const &value) override {
+	virtual std::optional<Value> foundKey(Key const &key,
+										  Value const &value) override {
+		fmt::print("成功找到 {} 对应的元素\n", key);
 		return {value};
 	}
-};
 
-template <typename Key, typename Value, typename Container = std::list<Node<Key, Value>>>
-using ListLRUCache = LRUCache<Key, Value, Container>;
+	// 获取信息时未能找到信息时的日志记录选项
+	virtual void logNotFoundKey(Key const &key) override {
+		fmt::print("日志: 未能找到 {} 对应的元素\n", key);
+	}
+
+	// 获取信息时找到元素后
+	virtual void logFoundKey(Key const &key, Value const &value) override {
+		fmt::print("日志: 成功找到 {} 对应的元素\n", key);
+	}
+};

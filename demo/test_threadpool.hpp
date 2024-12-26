@@ -22,6 +22,7 @@ inline void test_threadpool(Cutter & cutter){
 		results.push_back(resultPromise.get_future());
 		pool.enqueue([&, resultPromise=std::move(resultPromise)]() mutable {
 			segment(cutter, sentence, std::move(resultPromise));
+            return false;
 		});
 	}
 
