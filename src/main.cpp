@@ -6,6 +6,12 @@
 #include "thread_pool.hpp"
 #include "test_threadpool.hpp"
 
+template <typename Key = int, typename Value = int,
+		  typename Container = std::list<Node<Key, Value>>>
+class InvLRUCache : public ListLRUCache<key, Value, Container> {
+
+};
+
 int main() {
 	changeWorkSpace();
 	Cutter cutter;

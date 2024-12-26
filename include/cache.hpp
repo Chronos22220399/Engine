@@ -1,10 +1,7 @@
 #pragma once
+#include "inv_index.h"
 #include "includes.h"
 #include "egutils.h"
-#include <iostream>
-#include <list>
-#include <type_traits>
-#include <unordered_map>
 
 
 template <typename Key, typename Value>
