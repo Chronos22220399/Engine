@@ -34,14 +34,14 @@ std::optional<InvIndex::size_type> InvIndex::putBatch(DocWordsWithId const &doc)
         if (status.IsNotFound()) {
             fmt::print("键值对不存在，开始插入: {}: {}\n", *it, doc_id);
             // 不存在时, 直接插进去
-            batch.Put(*it, std::to_string(doc_id));
+            batch.Put(*it, serialize(doc_id));
             size += 1;
         } else if (!status.ok()) {
             LOG();
             fmt::print("获取键值对失失败{}\n", status.ToString());
             return std::nullopt;
         } else {
-            ids += " " + std::to_string(doc_id); 
+            ids.append(serialize(doc_id)); 
             batch.Put(*it, ids);
         }
     }
@@ -51,25 +51,21 @@ std::optional<InvIndex::size_type> InvIndex::putBatch(DocWordsWithId const &doc)
 
 std::optional<InvIndex::size_type> InvIndex::putSingle(std::pair<std::string, size_type> const &single_word) {
     std::string ids;
-    std::set<size_type> vec_id;
     auto status = db->Get(leveldb::ReadOptions(), single_word.first, &ids);
     // 未找到之外的异常状态直接返回
     if (!status.ok() && !status.IsNotFound()) {
         LOG();
-        fmt::print("获取键值对失失败{}\n", status.ToString());
+        fmt::print("插入时出现错误{}\n", status.ToString());
         return std::nullopt;
     }
 
     if (status.IsNotFound()) {
-        vec_id.insert(single_word.second);
+        ids = serialize(single_word.second);
     } else {
-        vec_id = deserializeSet(ids);
-        vec_id.insert(single_word.second);
+        ids.append(serialize(single_word.second));
     }
 
-    ids = serializeSet(vec_id);
-    status =
-        db->Put(leveldb::WriteOptions(), single_word.first, ids);
+    status = db->Put(leveldb::WriteOptions(), single_word.first, ids);
     return checkStatus(status, 1);
 }
 
@@ -78,7 +74,7 @@ std::optional<std::set<InvIndex::size_type>> InvIndex::getSingle(std::string con
     leveldb::Status status;
     std::string val;
     status = db->Get(leveldb::ReadOptions(), word, &val);
-    auto result = deserializeSet(val);
+    std::set<size_type> result = deserialize(val);
     if (result.empty()) {
         return std::nullopt;
     }
@@ -109,7 +105,7 @@ std::optional<std::map<std::string, std::set<InvIndex::size_type>>> InvIndex::ge
     size_type cnt {0};
     leveldb::Iterator *it = db->NewIterator(leveldb::ReadOptions());
     for (it->SeekToFirst(); it->Valid() and cnt < count; it->Next()) {
-        retMap[it->key().ToString()] = deserializeSet(it->value().ToString());
+        retMap[it->key().ToString()] = deserialize(it->value().ToString());
         cnt++;
     }
     delete it;
@@ -120,7 +116,7 @@ std::optional<std::map<std::string, std::set<InvIndex::size_type>>> InvIndex::ge
     return { retMap };
 }
 
-std::string InvIndex::serializeSet(std::set<size_type> const &vec) {
+std::string InvIndex::serialize(std::set<size_type> const &vec) {
     std::string binary;
     binary.reserve(vec.size() * sizeof(size_type));
     for (auto &elem: vec) {
@@ -130,7 +126,14 @@ std::string InvIndex::serializeSet(std::set<size_type> const &vec) {
     return binary;
 }
 
-std::set<InvIndex::size_type> InvIndex::deserializeSet(std::string binary) {
+std::string InvIndex::serialize(size_type const &id) {
+    std::string binary;
+    binary.reserve(sizeof(size_type));
+    binary.append(reinterpret_cast<char const *>(&id), sizeof(size_type));
+    return binary;
+}
+
+std::set<InvIndex::size_type> InvIndex::deserialize(std::string binary) {
     std::set<size_type> s;
     if (binary.size() % sizeof(size_type) != 0) {
         throw std::runtime_error("Binary data size is not aligned with size_type");
@@ -177,7 +180,7 @@ void InvIndex::displayNth(size_type n) {
     std::string ids;
     for (it->SeekToFirst(); it->Valid() and cnt < n; it->Next()) {
         fmt::print("Key: {}\nValues: ", it->key().ToString());
-        auto ids = deserializeSet(it->value().ToString());
+        auto ids = deserialize(it->value().ToString());
         for (auto const id : ids) {
             fmt::print("{} ", id);
         } 

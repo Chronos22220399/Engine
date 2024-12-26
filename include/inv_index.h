@@ -22,7 +22,8 @@ public:
 
 class InvIndex {
 	using size_type = uint32_t;
-	std::string erase_password = "Essearch123456";
+	// std::string erase_password = "Essearch123456";
+	std::string erase_password = "";
 
 public:
 	~InvIndex();
@@ -60,9 +61,11 @@ private:
 	InvIndex(std::string const &db_name = "Inv",
 			 bool const &create_if_missing = true);
 
-	std::string serializeSet(std::set<size_type> const &vec);
+	std::string serialize(std::set<size_type> const &vec);
 
-	std::set<size_type> deserializeSet(std::string binary);
+	std::string serialize(size_type const &id);
+
+	std::set<size_type> deserialize(std::string binary);
 
 	template <typename T>
 	std::optional<T> checkStatus(leveldb::Status &status, T const &result) {

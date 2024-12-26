@@ -34,8 +34,10 @@ private:
 
 int main() {
 	DocWordsWithId did({"hello", "湖北工业大学"}, 2);
-	InvIndex::getInstance().putBatch(std::move(did));
-	// InvIndex::getInstance().displayNth();
+	// InvIndex::getInstance().putBatch(std::move(did));
+	InvIndex::getInstance().putSingle({"再asd也", 2});
+	InvIndex::getInstance().displayNth();
+	// InvIndex::getInstance().eraseAll();
 	// changeWorkSpace();
 	// Cutter cutter;
 	// test_threadpool(cutter);
