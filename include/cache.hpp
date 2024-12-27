@@ -35,6 +35,8 @@ public:
 
 	Cache(size_t const &capacity) : capacity(capacity) {}
 
+	virtual ~Cache() = default;
+
 	// 将信息存入缓存
 	virtual void put(Key const &key, Value const &value) = 0;
 
@@ -74,7 +76,10 @@ class LRUCache : public Cache<Key, Value, Container> {
 
 public:
 	LRUCache(size_t const &capacity = 1000)
-		: Cache<Key, Value, Container>(capacity) {}
+		: Cache<Key, Value, Container>(capacity) {
+		}
+	
+	virtual ~LRUCache() = default;
 
 	void put(Key const &key, Value const &value) override {
 		// 若使用的是 list
@@ -129,11 +134,12 @@ public:
 
 	// 获取信息时未能找到信息时的日志记录选项
 	virtual void logNotFoundKey(Key const &key) override {
-		fmt::print("日志: 未能找到 {} 对应的元素\n", key);
+		// fmt::print("日志: 未能找到 {} 对应的元素\n", key);
 	}
 
 	// 获取信息时找到元素后
 	virtual void logFoundKey(Key const &key, Value const &value) override {
-		fmt::print("日志: 成功找到 {} 对应的元素\n", key);
+		// fmt::print("日志: 成功找到 {} 对应的元素\n", key);
 	}
 };
+

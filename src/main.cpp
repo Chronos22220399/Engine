@@ -3,40 +3,42 @@
 #include "egutils.h"
 #include "includes.h"
 #include "inv_index.h"
+#include "test.hpp"
 #include "test_threadpool.hpp"
 #include "thread_pool.hpp"
+#include "Search.hpp"
+#include "NewsOperate.hpp"
 
-template <typename Key, typename Value,
-		  typename Container = std::list<Node<Key, Value>>>
-using ListLRUCache = LRUCache<Key, Value, Container>;
 
-using size_type = uint32_t;
-using InvNode = Node<std::string, std::set<size_type>>;
+void RunServer() {
+	Cutter cutter;
+	InvIndex inv;
+	InvLRUCache invCache(inv);
+	std::string server_address {"0.0.0.0:11111"};
+	Search search(cutter, invCache);
+	NewsOperator newsOperator(cutter, inv);
+	grpc::ServerBuilder builder;
 
-// MARK: 还需要完成上锁相关的内容，具体在 cache.hpp 中
-class InvLRUCache : public ListLRUCache<std::string, std::set<size_type>,
-										std::list<InvNode>> {
-public:
-	auto doNotFoundKey(std::string const &key)
-		-> std::optional<std::set<size_type>> override {
-		auto result = inv->getSingle(key);
-		if (result.has_value()) {
-			this->put(key, result.value());
-			return result;
-		}
-		return std::nullopt;
-	}
+	builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
+	builder.RegisterService(&search);
+	builder.RegisterService(&newsOperator);
 
-private:
-	std::shared_ptr<InvIndex> inv;
-};
-
+	std::unique_ptr<grpc::Server> server(builder.BuildAndStart());
+	fmt::print("开始监听 {}\n", server_address);
+	server->Wait();
+}
 
 
 
 int main() {
 	changeWorkSpace();
-	Cutter cutter;
+	// RunServer();
+	// Cutter cutter;
+	// test_inv_index();
+	
+	// std::optional<int> a = std::nullopt;
+	// std::cout << a.has_value() << std::endl;
+	// test_cache();
 	// test_threadpool(cutter);
 	
 	// InvLRUCache lru;

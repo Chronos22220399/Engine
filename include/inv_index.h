@@ -28,6 +28,9 @@ class InvIndex {
 public:
 	~InvIndex();
 
+	InvIndex(std::string const &db_name = "Inv",
+			 bool const &create_if_missing = true);
+
 	// 将一篇文档中的词语批量存入倒排索引
 	std::optional<size_type> putBatch(DocWordsWithId const &doc);
 
@@ -58,8 +61,6 @@ public:
 	InvIndex &operator=(InvIndex const &) = delete;
 
 private:
-	InvIndex(std::string const &db_name = "Inv",
-			 bool const &create_if_missing = true);
 
 	std::string serialize(std::set<size_type> const &vec);
 

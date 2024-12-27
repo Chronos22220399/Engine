@@ -68,14 +68,15 @@ std::optional<InvIndex::size_type> InvIndex::putSingle(std::pair<std::string, si
     return checkStatus(status, 1);
 }
 
-// 通过单个单词寻找索引，若是没找到或是为空（原则上不可能为空）则返回 nullopt
+// 通过单个单词寻找索引，若是没找到则返回被嵌套的空集合
 std::optional<std::set<InvIndex::size_type>> InvIndex::getSingle(std::string const &word) {
     leveldb::Status status;
     std::string val;
     status = db->Get(leveldb::ReadOptions(), word, &val);
+    checkStatus(status, 0);
     std::set<size_type> result = deserialize(val);
     if (result.empty()) {
-        return std::nullopt;
+        return {std::set<size_type>()};
     }
     return checkStatus(status, result);
 }
@@ -85,15 +86,14 @@ std::optional<std::map<std::string, std::set<InvIndex::size_type>>> InvIndex::ge
     std::map<std::string, std::set<size_type>> retMap;
     for (auto const& word : words) {
         auto ids = getSingle(word);
-        if (ids.has_value()) {
-            retMap[word] = ids.value();
-        } else {
-            retMap[word] = std::set<size_type>();
+        if (!ids) {
+            LOG_S("未知情况，ids 为 nullopt");
+            return std::nullopt;
         }
+        retMap[word] = ids.value();
     }
     if (retMap.empty()) {
-        LOG();
-        return std::nullopt;
+        LOG_S("未能获取到任一索引");
     }
     return { retMap };
 }
@@ -110,7 +110,7 @@ std::optional<std::map<std::string, std::set<InvIndex::size_type>>> InvIndex::ge
     delete it;
     if (retMap.empty()) {
         LOG();
-        return std::nullopt;
+        fmt::print("getInvIndex 未能获取任何索引\n");
     }
     return { retMap };
 }

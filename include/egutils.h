@@ -8,6 +8,14 @@
                __LINE__, \
                __FUNCTION__ \
                )
+
+#define LOG_S(message) \
+	fmt::println("[{}, {}, {}, {}]\n", \
+               std::string(__FILE__).substr(std::string(__FILE__).find("Engine/")), \
+               __LINE__, \
+               __FUNCTION__, \
+			   message \
+               )
 /*
 校验
 */
@@ -71,10 +79,24 @@ inline constexpr bool has_divorce_v = has_divorce<Cutter>::value;
 */
 template <typename T>
 inline auto display(T const &t) {
+	fmt::print("{ ");
 	for (auto &elem: t) {
-		std::cout << elem << " ";
+		fmt::print("{} ", elem);
 	}
-	std::cout << "\n";
+	fmt::print("}\n");
+}
+
+/*
+检测 optional 容器
+*/
+template <typename T>
+inline void optionalCheck(std::optional<T> const& elem) {
+	if (!elem) {
+		fmt::print("出现错误");
+	}
+	if (!elem.has_value()) {
+		fmt::print("获得空值");
+	}
 }
 
 struct TextProcessor {

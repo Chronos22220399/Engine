@@ -18,11 +18,13 @@
 #include <condition_variable>
 // 工具
 #include <unistd.h>
-#include "fmt/format.h"
+#include <memory>
 #include <chrono>
 #include <iostream>
 #include <type_traits>
 #include <algorithm>
+// 第三方
+#include "fmt/format.h"
 
 inline const std::string JIEBADICT_ROOT = "./thirdparty/cppjieba/dict/";
 /* namespace std { */

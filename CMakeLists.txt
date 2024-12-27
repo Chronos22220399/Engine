@@ -21,25 +21,31 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # archlinux 上
 find_package(leveldb REQUIRED)
 find_package(fmt REQUIRED)
+find_package(gRPC REQUIRED)
 
 file(
     GLOB_RECURSE 
     SOURCES
     # "main.cpp"
+    "include/*.hpp"
     "src/*.cpp"
     "test/*.hpp"
-)
-
-file(
-    GLOB_RECURSE
-    CPPJIEBA_SOURCES
-    "thirdparty/cppjieba/include/*.hpp"
+    "proto_outputs/Search/*.cc"
+    "proto_outputs/NewsOperate/*.cc"
 )
 
 file(
     GLOB_RECURSE
     INCLUDES
     "include/*.h"
+    "proto_outputs/Search/*.h"
+    "proto_outputs/NewsOperate/*.h"
+)
+
+file(
+    GLOB_RECURSE
+    CPPJIEBA_SOURCES
+    "thirdparty/cppjieba/include/*.hpp"
 )
 
 include_directories(thirdparty/cppjieba/include)
@@ -52,6 +58,8 @@ target_link_libraries(
     # ${LEVELDB_LIBRARIES}/libleveldb.dylib
     leveldb
     fmt::fmt
+    gRPC::grpc++
+    gRPC::grpc
 )
 
 target_include_directories(
@@ -61,6 +69,7 @@ target_include_directories(
     ${CMAKE_SOURCE_DIR}/thirdparty/cppjieba/include
     ${CMAKE_SOURCE_DIR}/thirdparty/cppjieba/deps/limonp/include
     ${CMAKE_SOURCE_DIR}/test
+    ${CMAKE_SOURCE_DIR}/proto_outputs/
     # ${LEVELDB_INCLUDE_DIRS}
     leveldb
 )

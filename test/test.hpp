@@ -1,12 +1,14 @@
 #pragma once
 #include "cutter.h"
 #include "includes.h"
+#include "Search.hpp"
 #include "inv_index.h"
 
-static Cutter cutter{};
-static std::vector<std::string> words;
+// inline static Cutter cutter{};
+// inline static std::vector<std::string> words;
 
-void test(std::string const &text) {
+
+inline void test(Cutter const& cutter, std::string const &text) {
 	auto start = std::chrono::high_resolution_clock::now();
 	cutter.advancedDivorce(text);
 	auto end = std::chrono::high_resolution_clock::now();
@@ -28,17 +30,39 @@ void test_1() {
 
 void test_inv_index() {
 	DocWordsWithId did({"hello", "湖北工业大学"}, 2);
-	// InvIndex::getInstance().putBatch(std::move(did));
+	InvIndex::getInstance().putBatch(std::move(did));
 	InvIndex::getInstance().putSingle({"再也", 2});
 	// auto result = InvIndex::getInstance().getSingle("s");
-	// auto result = InvIndex::getInstance().getByWords({"s", "hello", "湖北工业大学"});
+	// auto result = InvIndex::getInstance().getByWords({"s", "hello"});
 	// if (not result.has_value()) {
 	// 	fmt::print("元素不存在\n");
-	// 	return 0;
+	// 	return;
 	// }
 	// for (auto &id : result.value()) {
 	// 	std::cout << id << std::endl;
 	// }
 	InvIndex::getInstance().displayNth();
 	// InvIndex::getInstance().eraseAll();
+}
+
+void test_cache() {
+	InvIndex inv;
+	InvLRUCache cache(inv);
+	cache.put("hello", {1});
+	auto result = cache.get("hello");
+	optionalCheck(result);
+
+	for (auto const id : result.value()) {
+		fmt::print("{} ", id);
+	}
+	fmt::print("\n");
+}
+
+void test_server() {
+	changeWorkSpace();
+	InvIndex inv;
+	InvLRUCache cache(inv);
+	Cutter cutter{};
+	Search server(cutter, cache);
+	server.Divorce(QueryMode::Normal, "hello");
 }
