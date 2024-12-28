@@ -32,7 +32,11 @@ void RunServer() {
 
 int main() {
 	changeWorkSpace();
-	// RunServer();
+	// test_inv_index();
+	RunServer();
+	// InvIndex inv;
+	// inv.eraseAll();
+	// inv.displayNth();
 	// Cutter cutter;
 	// test_inv_index();
 	

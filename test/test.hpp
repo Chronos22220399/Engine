@@ -29,9 +29,9 @@ void test_1() {
 
 
 void test_inv_index() {
-	DocWordsWithId did({"hello", "湖北工业大学"}, 2);
-	InvIndex::getInstance().putBatch(std::move(did));
-	InvIndex::getInstance().putSingle({"再也", 2});
+	// DocWordsWithId did({"hello", "湖北工业大学"}, 2);
+	// InvIndex::getInstance().putBatch(std::move(did));
+	// InvIndex::getInstance().putSingle({"再也", 2});
 	// auto result = InvIndex::getInstance().getSingle("s");
 	// auto result = InvIndex::getInstance().getByWords({"s", "hello"});
 	// if (not result.has_value()) {

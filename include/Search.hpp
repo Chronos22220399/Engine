@@ -53,6 +53,8 @@ public:
     QueryMode queryMode = request->querymode();
     std::string queryContent = request->querycontent();
 
+    std::cout << "type: " << queryMode << std::endl;
+    fmt::print("content: {}\n", queryContent);
     auto words = Divorce(queryMode, queryContent);
     // 查询模式错误，但 WebServer
     // 在传入前已对模式进行过检查，因此应该为传输过程中的错误
